@@ -18,11 +18,12 @@ package gozebra
 import (
 	"encoding/binary"
 	"fmt"
-	log "github.com/Sirupsen/logrus"
 	"io"
 	"net"
 	"strings"
 	"syscall"
+
+	log "github.com/sirupsen/logrus"
 )
 
 const (
@@ -389,6 +390,7 @@ func (b *InterfaceUpdateBody) DecodeFromBytes(data []byte) error {
 func (b *InterfaceUpdateBody) Serialize() ([]byte, error) {
 	return []byte{}, nil
 }
+
 func intfflag2string(flag uint64) string {
 	ss := make([]string, 0, 10)
 	if flag&syscall.IFF_UP > 0 {
